@@ -8,12 +8,13 @@ def import_book():
         data_Book = f.read()
 
     with open('Telefon_Book.txt', 'a') as f:
-        f.write('\n\n' + data_Book + '\n\n')
+        f.write(data_Book + '\n\n')
+    v.print_import_book(name_)
 
 
 def add_contact(surname, first_name, patronymic, phone_number):
     with open('Telefon_Book.txt', 'a', encoding='utf-8') as f:
-        f.write('\n\n' + surname + '\n' + first_name + '\n' +
+        f.write(surname + '\n' + first_name + '\n' +
                 patronymic + '\n' + phone_number + '\n\n')
 
 
