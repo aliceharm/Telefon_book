@@ -21,9 +21,12 @@ def add_contact(surname, first_name, patronymic, phone_number):
 def search_data(word, data_list):
     if len(data_list) > 0:
         resalt = []
+        count = 0
         for item in data_list:
             if word in item:
                 resalt.append(item)
+                resalt.append(count)
+            count += 1
         return resalt
     else:
         return None
@@ -34,16 +37,15 @@ def export_data():
     with open('Telefon_Book.txt', 'r', encoding='utf-8') as file:
         data_B = file.read()
         list_cont = data_B.split("\n\n")
-        # list_ = []
-        # t = []
-        # for line in data_B:
-        #     if line != "":
-        #         t.append(line)
-        #     else:
-        #         list_.append(t)
-        #         t.clear
     return list_cont
 
 
-# def del_contact():
-#     list_ = export_data()
+def del_contact():
+    list_ = export_data()
+    del_ = v.print_del_cont()
+    util = list_.pop(del_)
+    new_str = "\n\n".join(list_)
+
+    with open('Telefon_Book.txt', 'w', encoding='utf-8') as file:
+        file.write(new_str)
+    return util
