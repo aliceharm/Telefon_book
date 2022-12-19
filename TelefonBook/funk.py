@@ -1,4 +1,6 @@
 import view as v
+import csv
+
 
 
 def import_book():
@@ -10,6 +12,18 @@ def import_book():
     with open('Telefon_Book.txt', 'a') as f:
         f.write(data_Book + '\n\n')
     v.print_import_book(name_)
+
+def import_book_csv():
+    
+    name_ = input('Введите имя csv файла, из которого импортируется телефонная книга - ')
+    with open(f'{name_}.csv', 'r', encoding='utf-8-sig', newline = "\n") as f:
+        data_Book = csv.reader(f)
+        for line in data_Book:
+            with open('Telefon_Book.txt', 'a' , encoding='utf-8-sig') as f:
+                f.write("\n".join(line))
+                f.write("\n\n")
+    v.print_import_book(name_)
+   
 
 
 def add_contact(surname, first_name, patronymic, phone_number):
