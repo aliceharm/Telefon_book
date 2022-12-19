@@ -8,7 +8,6 @@ def phonebook():
         v.print_adding_contact()
     elif menu_item == "2":
         f.del_contact()
-        v.print_del()
     elif menu_item == "3":
         v.print_search()
     elif menu_item == "4":
